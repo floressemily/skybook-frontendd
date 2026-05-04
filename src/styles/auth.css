@@ -1,0 +1,395 @@
+/* src/styles/auth.css */
+
+.auth-page {
+    min-height: 100vh;
+    background: #F5F5F5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px 16px;
+    font-family: BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+}
+
+/* ── Card ── */
+.auth-card {
+    background: #FFFFFF;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.10);
+    padding: 32px 28px;
+    width: 100%;
+    max-width: 440px;
+}
+
+/* ── Logo / Header ── */
+.auth-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.auth-logo__icon {
+    width: 36px;
+    height: 36px;
+    background: #003580;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.auth-logo__text {
+    font-size: 18px;
+    font-weight: 800;
+    color: #003580;
+    letter-spacing: -0.01em;
+}
+
+.auth-title {
+    font-size: 22px;
+    font-weight: 800;
+    color: #1A1A1A;
+    text-align: center;
+    margin: 0 0 6px;
+}
+
+.auth-subtitle {
+    font-size: 13px;
+    color: #4C4C4C;
+    text-align: center;
+    margin: 0 0 24px;
+    line-height: 1.5;
+}
+
+/* ── Campo de formulario ── */
+.auth-field {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 14px;
+}
+
+.auth-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #1A1A1A;
+}
+
+.auth-label span {
+    color: #D32F2F;
+    margin-left: 2px;
+}
+
+.auth-input {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1.5px solid #D9D9D9;
+    border-radius: 6px;
+    font-size: 14px;
+    color: #1A1A1A;
+    background: #fff;
+    font-family: inherit;
+    outline: none;
+    transition: border-color 0.2s;
+    box-sizing: border-box;
+}
+
+.auth-input:focus {
+    border-color: #006CE4;
+}
+
+.auth-input.error {
+    border-color: #D32F2F;
+}
+
+.auth-input:disabled {
+    background: #F5F5F5;
+    color: #999;
+}
+
+select.auth-input {
+    cursor: pointer;
+}
+
+.auth-error {
+    font-size: 11px;
+    color: #D32F2F;
+    margin-top: 1px;
+}
+
+/* ── Password input con ojo ── */
+.auth-pw-wrap {
+    position: relative;
+}
+
+.auth-pw-wrap .auth-input {
+    padding-right: 40px;
+}
+
+.auth-pw-eye {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    color: #4C4C4C;
+    display: flex;
+    align-items: center;
+}
+
+.auth-pw-eye:hover {
+    color: #003580;
+}
+
+/* ── Fuerza contraseña ── */
+.pw-strength {
+    margin-top: 6px;
+}
+
+.pw-strength__bars {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 4px;
+}
+
+.pw-strength__bar {
+    flex: 1;
+    height: 3px;
+    border-radius: 2px;
+    background: #E7E7E7;
+    transition: background 0.3s;
+}
+
+.pw-strength__bar.weak {
+    background: #D32F2F;
+}
+
+.pw-strength__bar.fair {
+    background: #FFB700;
+}
+
+.pw-strength__bar.good {
+    background: #1976D2;
+}
+
+.pw-strength__bar.strong {
+    background: #008009;
+}
+
+.pw-strength__label {
+    font-size: 11px;
+    color: #4C4C4C;
+}
+
+/* ── Botón principal ── */
+.auth-btn {
+    width: 100%;
+    padding: 12px;
+    background: #006CE4;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: background 0.2s;
+    margin-top: 4px;
+}
+
+.auth-btn:hover:not(:disabled) {
+    background: #005bb5;
+}
+
+.auth-btn:disabled {
+    background: #7EB8F5;
+    cursor: not-allowed;
+}
+
+/* ── Spinner ── */
+.auth-spinner {
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: auth-spin 0.7s linear infinite;
+    flex-shrink: 0;
+}
+
+@keyframes auth-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* ── Forgot password ── */
+.auth-forgot {
+    text-align: right;
+    margin-top: -8px;
+    margin-bottom: 14px;
+}
+
+.auth-forgot a {
+    font-size: 12px;
+    color: #006CE4;
+    text-decoration: none;
+}
+
+.auth-forgot a:hover {
+    text-decoration: underline;
+}
+
+/* ── Separador ── */
+.auth-separator {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 20px 0;
+    color: #4C4C4C;
+    font-size: 12px;
+}
+
+.auth-separator::before,
+.auth-separator::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #D9D9D9;
+}
+
+/* ── Botones sociales ── */
+.social-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 4px;
+}
+
+.social-btn {
+    width: 100%;
+    padding: 9px 12px;
+    border: 1.5px solid #D9D9D9;
+    border-radius: 6px;
+    background: #fff;
+    font-size: 13px;
+    font-weight: 600;
+    color: #1A1A1A;
+    cursor: pointer;
+    font-family: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: background 0.15s, border-color 0.15s;
+}
+
+.social-btn:hover {
+    background: #F5F5F5;
+    border-color: #bbb;
+}
+
+.social-btn__icon {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+}
+
+/* ── Footer link ── */
+.auth-footer {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 13px;
+    color: #4C4C4C;
+}
+
+.auth-footer a {
+    color: #006CE4;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.auth-footer a:hover {
+    text-decoration: underline;
+}
+
+/* ── Checkbox ── */
+.auth-check-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.auth-check-row input[type="checkbox"] {
+    width: 15px;
+    height: 15px;
+    accent-color: #006CE4;
+    margin-top: 2px;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.auth-check-row label {
+    font-size: 12px;
+    color: #4C4C4C;
+    line-height: 1.5;
+    cursor: pointer;
+}
+
+.auth-check-row label a {
+    color: #006CE4;
+    text-decoration: none;
+}
+
+/* ── Alert / mensaje info ── */
+.auth-alert {
+    padding: 10px 14px;
+    border-radius: 6px;
+    font-size: 12px;
+    line-height: 1.5;
+    margin-bottom: 14px;
+}
+
+.auth-alert--info {
+    background: #EEF4FF;
+    border: 1px solid rgba(0, 108, 228, 0.2);
+    color: #003580;
+}
+
+.auth-alert--error {
+    background: #FFF0F0;
+    border: 1px solid #FFCDD2;
+    color: #C62828;
+}
+
+.auth-alert--success {
+    background: #F0FFF4;
+    border: 1px solid #A5D6A7;
+    color: #1B5E20;
+}
+
+/* ── Fila de dos columnas ── */
+.auth-row-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+@media (max-width: 480px) {
+    .auth-card {
+        padding: 24px 16px;
+    }
+
+    .auth-row-2 {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,188 @@
+/* src/styles/confirmation.css */
+.confirmation-page {
+  background-color: #F5F5F5;
+  min-height: 100vh;
+  padding: 60px 20px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: #1A1A1A;
+}
+
+.confirmation-container {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Header */
+.success-header {
+  text-align: center;
+  background: #FFFFFF;
+  border: 1px solid #E7E7E7;
+  border-radius: 8px;
+  padding: 40px 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.success-header__icon {
+  width: 80px;
+  height: 80px;
+  background-color: #008009;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 24px;
+  color: white;
+  animation: scaleIn 0.5s ease-out;
+}
+
+@keyframes scaleIn {
+  0% { transform: scale(0); }
+  70% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+.success-header__title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1A1A1A;
+  margin: 0 0 12px;
+}
+
+.success-header__subtitle {
+  font-size: 16px;
+  color: #6A6A6A;
+  margin: 0;
+}
+
+/* Reference Card */
+.booking-reference {
+  background: #F0F7FF;
+  border: 1px solid #006CE4;
+  border-radius: 8px;
+  padding: 24px;
+  text-align: center;
+}
+
+.booking-reference__label {
+  font-size: 14px;
+  color: #003580;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+
+.booking-reference__code {
+  font-family: monospace;
+  font-size: 32px;
+  font-weight: 700;
+  color: #003580;
+  letter-spacing: 4px;
+}
+
+/* Itinerary */
+.confirmation-itinerary {
+  background: #FFFFFF;
+  border: 1px solid #E7E7E7;
+  border-radius: 8px;
+  padding: 24px;
+}
+
+.confirmation-itinerary__title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #003580;
+  margin: 0 0 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #E7E7E7;
+}
+
+.confirmation-itinerary__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 600px) {
+  .confirmation-itinerary__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.confirmation-itinerary__item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.confirmation-itinerary__label {
+  font-size: 13px;
+  color: #6A6A6A;
+}
+
+.confirmation-itinerary__value {
+  font-size: 16px;
+  font-weight: 500;
+  color: #1A1A1A;
+}
+
+/* Actions */
+.post-purchase-actions {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin-top: 24px;
+}
+
+@media (max-width: 600px) {
+  .post-purchase-actions {
+    flex-direction: column;
+  }
+}
+
+.btn {
+  padding: 12px 24px;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btn-primary {
+  background-color: #006CE4;
+  color: #FFFFFF;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #0050A8;
+}
+
+.btn-secondary {
+  background-color: #FFFFFF;
+  color: #006CE4;
+  border: 1px solid #006CE4;
+}
+
+.btn-secondary:hover {
+  background-color: #F0F7FF;
+}
+
+.btn-link {
+  color: #006CE4;
+  background: none;
+  border: none;
+}
+
+.btn-link:hover {
+  text-decoration: underline;
+}

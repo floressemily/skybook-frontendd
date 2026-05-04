@@ -1,0 +1,285 @@
+/* src/styles/admin/admin.css */
+
+/* ============================================================
+   VARIABLES GLOBALES Y BASE DEL PANEL ADMINISTRATIVO
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap');
+
+:root {
+    /* Paleta principal */
+    --admin-blue-dark: #003580;
+    --admin-blue-action: #006CE4;
+    --admin-blue-light: #E8F0FC;
+    --admin-blue-hover: #0057B8;
+
+    /* Fondos */
+    --admin-bg: #F5F5F5;
+    --admin-card: #FFFFFF;
+    --admin-sidebar-bg: #002660;
+    --admin-sidebar-hover: #003580;
+
+    /* Bordes */
+    --admin-border: #E7E7E7;
+    --admin-border-dark: #D0D0D0;
+
+    /* Texto */
+    --admin-text-primary: #1A1A1A;
+    --admin-text-secondary: #6A6A6A;
+    --admin-text-muted: #9A9A9A;
+    --admin-text-white: #FFFFFF;
+    --admin-text-sidebar: #B8CBE8;
+
+    /* Estados */
+    --admin-success: #008009;
+    --admin-success-bg: #E6F4E6;
+    --admin-error: #D14343;
+    --admin-error-bg: #FBEAEA;
+    --admin-warning: #F59E0B;
+    --admin-warning-bg: #FEF3CD;
+    --admin-info: #006CE4;
+    --admin-info-bg: #E8F0FC;
+
+    /* Tipografía */
+    --admin-font: 'DM Sans', sans-serif;
+    --admin-font-mono: 'DM Mono', monospace;
+
+    /* Espaciado */
+    --admin-sidebar-width: 240px;
+    --admin-navbar-height: 60px;
+    --admin-radius: 8px;
+    --admin-radius-lg: 12px;
+    --admin-radius-sm: 4px;
+
+    /* Sombras */
+    --admin-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+    --admin-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.10);
+    --admin-shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+
+    /* Transiciones */
+    --admin-transition: all 0.2s ease;
+}
+
+/* ============================================================
+   RESET Y BASE
+   ============================================================ */
+
+.admin-root *,
+.admin-root *::before,
+.admin-root *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.admin-root {
+    font-family: var(--admin-font);
+    font-size: 14px;
+    color: var(--admin-text-primary);
+    background-color: var(--admin-bg);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.admin-root a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.admin-root button {
+    font-family: var(--admin-font);
+    cursor: pointer;
+    border: none;
+    outline: none;
+}
+
+.admin-root input,
+.admin-root select,
+.admin-root textarea {
+    font-family: var(--admin-font);
+    font-size: 14px;
+    outline: none;
+}
+
+.admin-root ul,
+.admin-root ol {
+    list-style: none;
+}
+
+/* ============================================================
+   LAYOUT PRINCIPAL
+   ============================================================ */
+
+.admin-wrapper {
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
+}
+
+.admin-main {
+  flex: 1;
+  margin-left: 240px;
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 110px);
+  background-color: #F5F5F5;
+  margin-top: 0;
+}
+
+.admin-content {
+  flex: 1;
+  padding: 28px 32px;
+  overflow-y: auto;
+}
+
+/* ============================================================
+   TIPOGRAFÍA COMPARTIDA
+   ============================================================ */
+
+.admin-page-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--admin-text-primary);
+    letter-spacing: -0.3px;
+}
+
+.admin-page-subtitle {
+    font-size: 13px;
+    color: var(--admin-text-secondary);
+    margin-top: 2px;
+}
+
+.admin-page-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 24px;
+}
+
+.admin-page-header-left {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+/* ============================================================
+   BOTONES BASE
+   ============================================================ */
+
+.admin-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    border-radius: var(--admin-radius);
+    font-size: 13px;
+    font-weight: 600;
+    transition: var(--admin-transition);
+    white-space: nowrap;
+}
+
+.admin-btn-primary {
+    background-color: var(--admin-blue-action);
+    color: var(--admin-text-white);
+}
+
+.admin-btn-primary:hover {
+    background-color: var(--admin-blue-hover);
+}
+
+.admin-btn-secondary {
+    background-color: var(--admin-card);
+    color: var(--admin-text-primary);
+    border: 1px solid var(--admin-border-dark);
+}
+
+.admin-btn-secondary:hover {
+    background-color: var(--admin-bg);
+}
+
+.admin-btn-danger {
+    background-color: var(--admin-error-bg);
+    color: var(--admin-error);
+    border: 1px solid var(--admin-error);
+}
+
+.admin-btn-danger:hover {
+    background-color: var(--admin-error);
+    color: #fff;
+}
+
+.admin-btn-sm {
+    padding: 5px 10px;
+    font-size: 12px;
+}
+
+/* ============================================================
+   CARDS BASE
+   ============================================================ */
+
+.admin-card {
+    background-color: var(--admin-card);
+    border: 1px solid var(--admin-border);
+    border-radius: var(--admin-radius-lg);
+    box-shadow: var(--admin-shadow-sm);
+    padding: 24px;
+}
+
+/* ============================================================
+   INPUTS BASE
+   ============================================================ */
+
+.admin-input {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid var(--admin-border-dark);
+    border-radius: var(--admin-radius);
+    font-size: 13px;
+    color: var(--admin-text-primary);
+    background-color: var(--admin-card);
+    transition: var(--admin-transition);
+}
+
+.admin-input:focus {
+    border-color: var(--admin-blue-action);
+    box-shadow: 0 0 0 3px rgba(0, 108, 228, 0.12);
+}
+
+.admin-input::placeholder {
+    color: var(--admin-text-muted);
+}
+
+/* ============================================================
+   DIVIDER
+   ============================================================ */
+
+.admin-divider {
+    height: 1px;
+    background-color: var(--admin-border);
+    margin: 20px 0;
+}
+
+/* ============================================================
+   EMPTY STATE
+   ============================================================ */
+
+.admin-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 48px 24px;
+    color: var(--admin-text-muted);
+    gap: 8px;
+}
+
+.admin-empty-icon {
+    font-size: 36px;
+    opacity: 0.4;
+}
+
+.admin-empty-text {
+    font-size: 14px;
+    font-weight: 500;
+}

@@ -1,0 +1,369 @@
+/* src/styles/admin/dashboard.css */
+
+/* ============================================================
+   DASHBOARD — GRID Y STAT CARDS
+   ============================================================ */
+
+/* Grid de estadísticas principales */
+.admin-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+/* ============================================================
+   STAT CARD
+   ============================================================ */
+
+.admin-stat-card {
+    background-color: var(--admin-card);
+    border: 1px solid var(--admin-border);
+    border-radius: var(--admin-radius-lg);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    box-shadow: var(--admin-shadow-sm);
+    transition: var(--admin-transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.admin-stat-card:hover {
+    box-shadow: var(--admin-shadow-md);
+    transform: translateY(-1px);
+}
+
+/* Franja de color superior */
+.admin-stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background-color: var(--card-accent, var(--admin-blue-action));
+    border-radius: var(--admin-radius-lg) var(--admin-radius-lg) 0 0;
+}
+
+.admin-stat-card--success {
+    --card-accent: var(--admin-success);
+}
+
+.admin-stat-card--error {
+    --card-accent: var(--admin-error);
+}
+
+.admin-stat-card--warning {
+    --card-accent: var(--admin-warning);
+}
+
+.admin-stat-card--info {
+    --card-accent: var(--admin-blue-action);
+}
+
+.admin-stat-card--dark {
+    --card-accent: var(--admin-blue-dark);
+}
+
+/* Header de la card */
+.admin-stat-card__header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.admin-stat-card__label {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--admin-text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.admin-stat-card__icon {
+    width: 36px;
+    height: 36px;
+    border-radius: var(--admin-radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 17px;
+    background-color: var(--icon-bg, var(--admin-blue-light));
+    color: var(--icon-color, var(--admin-blue-action));
+    flex-shrink: 0;
+}
+
+.admin-stat-card--success .admin-stat-card__icon {
+    --icon-bg: var(--admin-success-bg);
+    --icon-color: var(--admin-success);
+}
+
+.admin-stat-card--error .admin-stat-card__icon {
+    --icon-bg: var(--admin-error-bg);
+    --icon-color: var(--admin-error);
+}
+
+.admin-stat-card--warning .admin-stat-card__icon {
+    --icon-bg: var(--admin-warning-bg);
+    --icon-color: var(--admin-warning);
+}
+
+/* Valor principal */
+.admin-stat-card__value {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--admin-text-primary);
+    letter-spacing: -0.8px;
+    line-height: 1;
+}
+
+/* Footer con tendencia */
+.admin-stat-card__footer {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: var(--admin-text-muted);
+}
+
+.admin-stat-card__trend {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 2px 6px;
+    border-radius: var(--admin-radius-sm);
+}
+
+.admin-stat-card__trend--up {
+    color: var(--admin-success);
+    background-color: var(--admin-success-bg);
+}
+
+.admin-stat-card__trend--down {
+    color: var(--admin-error);
+    background-color: var(--admin-error-bg);
+}
+
+.admin-stat-card__trend--neutral {
+    color: var(--admin-text-secondary);
+    background-color: var(--admin-bg);
+}
+
+/* ============================================================
+   GRID SECUNDARIO DEL DASHBOARD
+   ============================================================ */
+
+.admin-dashboard-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.admin-dashboard-grid--three {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.admin-dashboard-grid--full {
+    grid-template-columns: 1fr;
+}
+
+/* ============================================================
+   WIDGET / PANEL INTERNO
+   ============================================================ */
+
+.admin-widget {
+    background-color: var(--admin-card);
+    border: 1px solid var(--admin-border);
+    border-radius: var(--admin-radius-lg);
+    box-shadow: var(--admin-shadow-sm);
+    overflow: hidden;
+}
+
+.admin-widget__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--admin-border);
+}
+
+.admin-widget__title {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--admin-text-primary);
+}
+
+.admin-widget__subtitle {
+    font-size: 12px;
+    color: var(--admin-text-muted);
+    margin-top: 1px;
+}
+
+.admin-widget__action {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--admin-blue-action);
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+    transition: var(--admin-transition);
+}
+
+.admin-widget__action:hover {
+    color: var(--admin-blue-hover);
+    text-decoration: underline;
+}
+
+.admin-widget__body {
+    padding: 20px;
+}
+
+.admin-widget__body--flush {
+    padding: 0;
+}
+
+/* ============================================================
+   LISTA DE ACTIVIDAD RECIENTE
+   ============================================================ */
+
+.admin-activity-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.admin-activity-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px 20px;
+    border-bottom: 1px solid var(--admin-border);
+    transition: var(--admin-transition);
+}
+
+.admin-activity-item:last-child {
+    border-bottom: none;
+}
+
+.admin-activity-item:hover {
+    background-color: var(--admin-bg);
+}
+
+.admin-activity-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    flex-shrink: 0;
+    margin-top: 1px;
+}
+
+.admin-activity-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.admin-activity-text {
+    font-size: 13px;
+    color: var(--admin-text-primary);
+    line-height: 1.4;
+}
+
+.admin-activity-text strong {
+    font-weight: 600;
+}
+
+.admin-activity-time {
+    font-size: 11px;
+    color: var(--admin-text-muted);
+    margin-top: 2px;
+    font-family: var(--admin-font-mono);
+}
+
+/* ============================================================
+   GRÁFICO SIMPLE (BARRAS VISUALES)
+   ============================================================ */
+
+.admin-bar-chart {
+    display: flex;
+    align-items: flex-end;
+    gap: 6px;
+    height: 100px;
+    padding: 0 4px;
+}
+
+.admin-bar-chart__bar-wrap {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    height: 100%;
+    justify-content: flex-end;
+}
+
+.admin-bar-chart__bar {
+    width: 100%;
+    background-color: var(--admin-blue-light);
+    border-radius: 3px 3px 0 0;
+    transition: background-color 0.2s ease;
+    min-height: 4px;
+}
+
+.admin-bar-chart__bar:hover {
+    background-color: var(--admin-blue-action);
+}
+
+.admin-bar-chart__bar--active {
+    background-color: var(--admin-blue-action);
+}
+
+.admin-bar-chart__label {
+    font-size: 10px;
+    color: var(--admin-text-muted);
+    font-family: var(--admin-font-mono);
+    white-space: nowrap;
+}
+
+/* ============================================================
+   RESUMEN RÁPIDO (LISTA KEY-VALUE)
+   ============================================================ */
+
+.admin-kv-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.admin-kv-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--admin-border);
+    font-size: 13px;
+}
+
+.admin-kv-item:last-child {
+    border-bottom: none;
+}
+
+.admin-kv-key {
+    color: var(--admin-text-secondary);
+    font-weight: 500;
+}
+
+.admin-kv-value {
+    color: var(--admin-text-primary);
+    font-weight: 600;
+    font-family: var(--admin-font-mono);
+    font-size: 12px;
+}
