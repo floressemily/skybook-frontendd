@@ -1,14 +1,10 @@
 import axios from 'axios';
 
 const apiClient = axios.create({
-  baseURL: 'http://localhost:5100/api/v1',
-  headers: {
-    'Content-Type': 'application/json',
-  },
-  timeout: 30000,
+  baseURL: import.meta.env.VITE_API_URL,
 });
 
-// Interceptor para inyectar el token en cada petición
+// Interceptor para inyectar el token (mantenido para funcionalidad básica)
 apiClient.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem('token');
@@ -18,21 +14,6 @@ apiClient.interceptors.request.use(
     return config;
   },
   (error) => Promise.reject(error)
-);
-
-apiClient.interceptors.response.use(
-  (response) => response,
-  (error) => {
-    console.error('Error API:', {
-      url: error.config?.url,
-      method: error.config?.method,
-      status: error.response?.status,
-      message: error.message,
-      data: error.response?.data,
-    });
-
-    return Promise.reject(error);
-  }
 );
 
 export default apiClient;

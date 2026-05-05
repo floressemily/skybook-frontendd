@@ -18,7 +18,7 @@ import '../../styles/admin/tables.css';
 
 // Base URL de tu API
 // TODO: mover a variable de entorno VITE_API_URL
-const API_BASE = 'http://localhost:5100';
+const API_BASE = import.meta.env.VITE_API_URL?.replace('/api/v1', '');
 
 // Íconos para actividad reciente según tipo de evento
 const ACTIVITY_ICONS = {

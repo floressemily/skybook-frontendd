@@ -11,7 +11,7 @@ import ActionButtons from '../../components/admin/ActionButtons';
 // Gestión de reservas del panel administrativo.
 // ============================================================
 
-const API_BASE = 'http://localhost:5100';
+const API_BASE = import.meta.env.VITE_API_URL?.replace('/api/v1', '');
 
 const ESTADO_OPTIONS = [
     { value: 'PENDIENTE_PAGO', label: 'Pendiente de pago' },

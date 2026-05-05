@@ -18,7 +18,7 @@ import ActionButtons from '../../components/admin/ActionButtons';
 // GET  /api/v1/avion/por-matricula/{matricula}→ buscar por matrícula
 // ============================================================
 
-const API_BASE = 'http://localhost:5100';
+const API_BASE = import.meta.env.VITE_API_URL?.replace('/api/v1', '');
 
 const ESTADO_OPTIONS = [
     { value: 'ACTIVO', label: 'Activo' },

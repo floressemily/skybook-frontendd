@@ -21,7 +21,7 @@ import ActionButtons from '../../components/admin/ActionButtons';
 // DELETE /api/v1/usuariorol/{usuarioRolId}         → quitar rol
 // ============================================================
 
-const API_BASE = 'http://localhost:5100';
+const API_BASE = import.meta.env.VITE_API_URL?.replace('/api/v1', '');
 
 const ACTIVO_OPTIONS = [
     { value: 'true', label: 'Activo' },

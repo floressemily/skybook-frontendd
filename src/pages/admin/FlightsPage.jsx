@@ -11,7 +11,7 @@ import ActionButtons from '../../components/admin/ActionButtons';
 // Gestión de vuelos del panel administrativo.
 // ============================================================
 
-const API_BASE = 'http://localhost:5100';
+const API_BASE = import.meta.env.VITE_API_URL?.replace('/api/v1', '');
 
 // Opciones del filtro de estado (valores reales de la BD)
 const ESTADO_OPTIONS = [
